@@ -1,0 +1,14 @@
+.wrapper{
+    padding: 1.5rem;  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    margin-inline: auto;
+}
+@media (min-width: 1024px){
+    .wrapper{
+        flex-direction: row;
+        margin-top: 4rem;
+    }
+}

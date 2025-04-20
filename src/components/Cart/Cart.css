@@ -1,0 +1,17 @@
+.cart-container{
+    height: fit-content;
+    background-color: white;
+    padding: 1.5rem;
+    h2{
+        color: var(--clr-Red);
+    }
+}
+.cart-empty{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    color: var(--clr-Rose-500);
+    padding-bottom: 1.5rem;
+}

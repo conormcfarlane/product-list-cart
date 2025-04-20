@@ -1,0 +1,21 @@
+.dessert-list-container{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.dessert-card-container{
+    display: grid;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px){
+    .dessert-card-container{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (min-width: 1024px){
+    .dessert-card-container{
+        grid-auto-rows: 1fr
+    }
+}

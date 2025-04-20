@@ -1,0 +1,126 @@
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+/* red-hat-text-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Red Hat Text';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/red-hat-text-v18-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* red-hat-text-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Red Hat Text';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/fonts/red-hat-text-v18-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* red-hat-text-700italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Red Hat Text';
+  font-style: italic;
+  font-weight: 700;
+  src: url('/fonts/red-hat-text-v18-latin-700italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+:root{
+  --clr-Red: #c73b0f;
+  --clr-Rose-900: #260F08;
+  --clr-Rose-500:#87635A;
+  --clr-Rose-400:#AD8A85;
+  --clr-Rose-300:#CAAFA7;
+  --clr-Rose-100:#F5EEEC;
+  --clr-Rose-050:#FCF8F6;
+  --clr-Green:#1EA575;
+  --clr-Black:#000000;
+  --clr-White:#FFFFFF;
+}
+.text-preset-1{
+  font-size: 2.5rem;
+  line-height: 120%;
+  letter-spacing: 0px;
+  font-weight: 700;
+}
+.text-preset-2{
+  font-size: 1.5rem;
+  line-height: 125%;
+  letter-spacing: 0px;
+  font-weight: 700;
+}
+.text-preset-3{
+  letter-spacing: 1rem;
+  line-height: 150%;
+  letter-spacing: 0px;
+  font-weight: 600;
+}
+.text-preset-4{
+  font-size: 0.85rem;
+  line-height: 150%;
+  letter-spacing: 0px;
+}
+.text-preset-4-bold{
+  font-size: 0.85rem;
+  line-height: 150%;
+  letter-spacing: 0px;
+  font-weight: 600;
+}
+body{
+  font-family: 'Red Hat Text', sans-serif;
+  background-color: var(--clr-Rose-050);
+}

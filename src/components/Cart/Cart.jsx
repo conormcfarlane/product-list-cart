@@ -18,7 +18,7 @@ export default function Cart({cartTotal, cartItems}) {
   return (
     <div className='cart-container'>
       <h2>Your Cart ({cartItems.length})</h2>
-      {cartItems === 0 ?
+      {cartItems.length === 0 ?
         (<div className='cart-empty'>
           <img src={emptyCart} alt="" />
           <p>Your added items will appear here</p>
@@ -40,10 +40,7 @@ export default function Cart({cartTotal, cartItems}) {
     
     
     }
-      <div className='cart-empty'>
-        <img src={emptyCart} alt="" />
-        <p>Your added items will appear here</p>
-      </div>
+      
     </div>
   )
 }

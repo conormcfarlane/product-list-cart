@@ -15,3 +15,12 @@
     color: var(--clr-Rose-500);
     padding-bottom: 1.5rem;
 }
+
+.cart-items{
+    background-color: red;
+}
+
+.cart-item-numbers{
+    display: flex;
+    gap: 1rem;
+}

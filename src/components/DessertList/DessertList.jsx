@@ -3,7 +3,7 @@ import data from '../../data/data.json'
 import DessertCard from '../DessertCard/DessertCard'
 import './DessertList.css'
 
-export default function DessertList() {
+export default function DessertList({addToCart}) {
   return (
     <div className='dessert-list-container'>
     <h1>Desserts</h1>
@@ -17,7 +17,8 @@ export default function DessertList() {
          thumbimage={item.image.thumbnail} 
          desktopImg={item.image.desktop} 
          mobileImg={item.image.mobile} 
-         tabletImg={item.image.tablet} 
+         tabletImg={item.image.tablet}
+         addToCart={() => addToCart(item)} 
          />
       ))}
     </div>

@@ -2,7 +2,7 @@ import React from 'react'
 import './DessertCard.css'
 import iconAddToCart from '/images/icon-add-to-cart.svg'
 
-export default function DessertCard({name, category, price, thumbimage, desktopImg, mobileImg, tabletImg}) {
+export default function DessertCard({name, category, price, thumbimage, desktopImg, mobileImg, tabletImg, addToCart}) {
   return (
     <div className='dessert-card'>
       <div className='img-container'>
@@ -11,7 +11,8 @@ export default function DessertCard({name, category, price, thumbimage, desktopI
         <source media="(min-width: 768px)" srcSet={tabletImg} />
         <img src={mobileImg} />
       </picture>
-      <button className='add-to-cart-btn'>
+      <button className='add-to-cart-btn' onClick={addToCart}>
+        
         <img src={iconAddToCart} id='cart-img' alt="" />
         <p>Add to Cart</p>
       </button>

@@ -25,18 +25,29 @@ export default function Cart({cartTotal, cartItems}) {
         </div>
         )
         :
-        ( <div className='cart-items'>
-            {groupedItems.map((item,index) => (
-              <div key={index} className='cart-item'>
-                <h4>{item.name}</h4>
-                <div className='cart-item-numbers'>
-                  <p>{item.quantity}</p>
-                  <p>${item.price.toFixed(2)}</p>
-                  <p>${item.combinedPrice.toFixed(2)}</p>
+
+        (
+          <>
+            <div className='cart-items'>
+              {groupedItems.map((item,index) => (
+                <div key={index} className='cart-item'>
+                  <h4>{item.name}</h4>
+                  <div className='cart-item-numbers'>
+                    <p className='text-preset-4-bold'>x{item.quantity}</p>
+                    <p className='text-preset-4'>@ ${item.price.toFixed(2)}</p>
+                    <p className='text-preset-4-bold'>${item.combinedPrice.toFixed(2)}</p>
+                    
+                  </div>
+                  
                 </div>
-              </div>
-            ))}
-        </div> )
+              ))}
+              <div className='cart-total-container'>
+                    <p className='text-preset-4'>Order Total</p>
+                    <p className='text-preset-2'>${cartTotal.toFixed(2)}</p>
+                  </div>
+         </div>
+          </>
+           )
     
     
     }

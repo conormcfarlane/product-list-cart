@@ -1,60 +1,32 @@
-.dessert-card{
-    background-color: white;
-    width: fit-content;
-   
+.card{
+    display: grid;
+    gap: 2rem;
 }
-.img-container{
+.card-top{
     position: relative;
-    margin-bottom: 30px;
 }
-.dessert-card img{
+.card-top img{
     border-radius: 0.5rem;
-    display: block;
-    width: 100%;
-    height: auto;    
 }
-.dessert-card button{
+.card-top button{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1.85rem;
-    max-height: fit-content;
-    max-width: fit-content;
-    border-radius: 999px;
-    background-color: white;
-    border: 0.5px solid var(--clr-Rose-400);
+    gap: 1rem;
     position: absolute;
-    bottom: -5%;
+    bottom: 0;
     left: 50%;
-    transform: translate(-50%, 0);
-    z-index: 1;
+    transform: translate(-50%,40%);
+    padding: 0.55rem 2rem;
+    border: 1px solid var(--clr-Rose-400);
+    background-color: green;
+    white-space: nowrap;
+    min-width: 50%;
+    border-radius: 999px;
     cursor: pointer;
-    p{
-        white-space: nowrap;
-    }
-    img{
-        height: 1.25rem;
-        width: 1.25rem;
-    }
+    
 }
 
-.dessert-card-info{
-    h4{
-        color: var(--clr-Rose-400);
-    }
-    .dessert-card-info-price{
-        color: var(--clr-Red);
-    }
-}
+.card-bottom{
 
-@media (min-width: 1024px){
-    .dessert-card{
-        max-width: 250px;
-    }
-
-    .dessert-card img{
-        max-height: 240px;
-        
-    }
 }

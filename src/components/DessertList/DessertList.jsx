@@ -1,30 +1,35 @@
 import React from 'react'
-import data from '../../data/data.json'
+import desserts from '../../data/desserts.json'
 import DessertCard from '../DessertCard/DessertCard'
 import './DessertList.css'
 
 export default function DessertList({addToCart}) {
+
+  // Assigning ID to each Dessert
+  const products = desserts.map((item, index) => ({
+    ...item,
+    id: index + 1,
+  }))
+  console.log(products)
   return (
     <div className='dessert-list-container'>
-    <h1>Desserts</h1>
-    <div className='dessert-card-container'>
-      {data.map((item, index) => (
-        <DessertCard
-         key={index}
-         name={item.name}
-         category={item.category}
-         price={item.price}
-         thumbimage={item.image.thumbnail} 
-         desktopImg={item.image.desktop} 
-         mobileImg={item.image.mobile} 
-         tabletImg={item.image.tablet}
-         addToCart={() => addToCart(item)} 
-         />
-      ))}
+      <h1>Desserts</h1>
+      <div className='dessert-card-container'>
+        {products.map(dessert => (
+          <DessertCard 
+          key={dessert.id}
+          id={dessert.id}
+          name={dessert.name}
+          category={dessert.category}
+          price={dessert.price}
+          thumbimage={dessert.image.thumbnail}
+          desktopImg={dessert.image.desktop}
+          mobileImg={dessert.image.mobile}
+          tabletImg={dessert.image.tablet}
+          addToCart={addToCart}
+          />
+        ))}
+      </div>
     </div>
-    
-    
-    </div>
-    
   )
 }

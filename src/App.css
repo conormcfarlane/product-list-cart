@@ -1,14 +1,18 @@
 .wrapper{
-    padding: 1.5rem;  
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 2rem;
+    padding: 1.5rem;
     margin-inline: auto;
 }
-@media (min-width: 1024px){
+@media (min-width:768px) {
     .wrapper{
+        display: grid;
+        gap: 2rem;
+        padding: 2.5rem;
+    }
+}
+@media (min-width:1024px) {
+    .wrapper{
+        padding: 6rem;
         flex-direction: row;
-        margin-top: 4rem;
+        grid-template-columns: repeat(2,70% 30%);
     }
 }

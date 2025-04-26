@@ -1,39 +1,47 @@
-import {useState} from 'react'
-
-import './App.css'
+import React, {useState} from 'react'
 import DessertList from './components/DessertList/DessertList'
 import Cart from './components/Cart/Cart'
-function App() {
-  
-  const [cartItems, setCartItems] = useState([]) //State for cart items
-  const [cartTotal, setCartTotal] = useState(0) //State for cart total
+import './App.css'
 
-  // Function to add items to cart & update cart total
-  const addToCart = (item) => {
-    setCartItems((prevItems) => [...prevItems, item]) // Adds item to cart, uses prevItem as current cart item array and uses spread operator to create a new array insetad of changing the original one (ie. updates immutably). Must use comma and not + as + is only used in JS for numbers and string concatination.
-    setCartTotal((prevTotal) => prevTotal + item.price) // Adds new item price to existing cart total.
-  }
+export default function App() {
 
-   // Function to remove an item from the cart
-   const removeItem = (item) => {
-    setCartItems((prevItems) => {
-      //Filters out all instances of the item
-      const updatedItems = prevItems.filter((i) => i.name !== item.name)
-      return updatedItems
-    })
+  //Cart State - Holds array of project objects
+    const [cart, setCart] = useState([])
 
-    //Update the cart total
-    setCartTotal((prevTotal) => prevTotal - item.combined)
-   }
+  // Adds a product to the cart 
+    const addToCart = (dessert) => {
+      // First check if dessert is in the cart
+      const existing = cart.find(item => item.id === dessert.id)
 
+      // If its already in the cart, increase its quantity
+      if(existing) {
+        setCart(cart.map(item =>
+          item.id === dessert.id ? {...item, quantity: item.quantity + 1} : item))
+      }else{
+        // Else, add it to the cart and set its quantity to 1
+        setCart([...cart, {...dessert, quantity:1}])
+      }
+    }
 
+    // Remove an item completely from the cart 
+    const removeFromCart = (id) => {
+      setCart(cart.filter(item => item.id !== id))
+
+    }
+
+    // Decrease quantity of an item and remove if its quantity hits 0
+    const decreaseQuantity = (id) => {
+      setCart(cart.map(item => {
+        if (item.id === id) return{...item, quantity: item.quantity - 1}
+        return item
+      }).filter(item => item.quantity > 0))
+    }
 
   return (
-      <div className="wrapper">
-        <DessertList addToCart={addToCart} />
-        <Cart cartTotal={cartTotal} cartItems={cartItems} removeItem={removeItem}/>
-      </div>
+    <div className='wrapper'>
+      <DessertList addToCart={addToCart} decreaseQuantity={decreaseQuantity}/>
+      <Cart cart={cart} removeFromCart={removeFromCart}/>
+
+    </div>
   )
 }
-
-export default App

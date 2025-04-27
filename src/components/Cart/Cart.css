@@ -47,8 +47,25 @@
     }
 }
 .cart-total{
-    margin-top: 1rem;
+    margin-block: 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.carbon-neutral-wrapper{
+    background-color: var(--clr-Rose-100);
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    padding-block: 1rem;
+    margin-bottom: 1.5rem;
+}
+.confirm-order-btn{
+    background-color: var(--clr-Red);
+    width: 100%;
+    border-radius: 999px;
+    border: none;
+    padding-block: 1rem;
+    color: white;
+    cursor: pointer;
 }

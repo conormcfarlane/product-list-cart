@@ -2,6 +2,7 @@ import React from 'react'
 import './Cart.css'
 import emptyCartImg from '/images/illustration-empty-cart.svg'
 import removeButton from '/images/icon-remove-item.svg'
+import iconCarbon from '/images/icon-carbon-neutral.svg'
 
 export default function Cart({cart, addToCart, removeFromCart}) {
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity,0)
@@ -28,7 +29,7 @@ export default function Cart({cart, addToCart, removeFromCart}) {
                 <div className="price-container">
                   <p className='text-preset-4-bold'>{dessert.quantity}x</p>
                   <p className='text-preset-4'>@ ${dessert.price.toFixed(2)}</p>
-                  <p className='text-preset-4-bold'>${dessert.price * dessert.quantity}</p>
+                  <p className='text-preset-4-bold'>${(dessert.price * dessert.quantity).toFixed(2)}</p>
                 </div>
               </div>
               <div className="cart-content-right">
@@ -43,6 +44,16 @@ export default function Cart({cart, addToCart, removeFromCart}) {
                 <p className='text-preset-4'>Order Total: </p>
                 <p className='text-preset-2'>${total.toFixed(2)}</p>
               </div>
+
+              <div className="carbon-neutral-wrapper">
+                <img src={iconCarbon} alt="" />
+                <p className='text-preset 4'> This is a <strong>carbon-neutral</strong> delivery
+                </p>
+              </div>
+
+              <button className='confirm-order-btn text-preset-3'>
+                Confirm Order
+              </button>
             </div>
             
         )}

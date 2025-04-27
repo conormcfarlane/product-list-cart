@@ -3,7 +3,7 @@ import desserts from '../../data/desserts.json'
 import DessertCard from '../DessertCard/DessertCard'
 import './DessertList.css'
 
-export default function DessertList({addToCart}) {
+export default function DessertList({addToCart, cart, decreaseQuantity}) {
 
   // Assigning ID to each Dessert
   const products = desserts.map((item, index) => ({
@@ -27,6 +27,8 @@ export default function DessertList({addToCart}) {
           mobileImg={dessert.image.mobile}
           tabletImg={dessert.image.tablet}
           addToCart={addToCart}
+          cart={cart}
+          decreaseQuantity={decreaseQuantity}
           />
         ))}
       </div>

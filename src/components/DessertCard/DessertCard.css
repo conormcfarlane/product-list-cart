@@ -5,8 +5,12 @@
 .card-top{
     position: relative;
 }
-.card-top img{
+.card-top img, .card-top picture{
     border-radius: 0.5rem;
+    
+}
+.card-top.in-cart picture{
+    border: 2px solid var(--clr-Red);
 }
 .cart-button {
     display: flex;

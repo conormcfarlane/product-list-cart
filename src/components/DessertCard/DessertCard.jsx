@@ -20,7 +20,7 @@ export default function DessertCard({
   const itemInCart = cart.find((item) => item.id === id)
   return (
     <div className='card'>
-      <div className="card-top">
+      <div className={`card-top ${itemInCart ? 'in-cart' : ''}`}>
         <picture>
           <source media='(min-width: 1024px)' srcSet={desktopImg}/>
           <source media='(min-width: 768px)' srcSet={tabletImg}/>

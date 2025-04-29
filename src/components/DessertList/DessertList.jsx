@@ -22,7 +22,7 @@ export default function DessertList({addToCart, cart, decreaseQuantity}) {
           name={dessert.name}
           category={dessert.category}
           price={dessert.price}
-          thumbimage={dessert.image.thumbnail}
+          thumbnail={dessert.image.thumbnail}
           desktopImg={dessert.image.desktop}
           mobileImg={dessert.image.mobile}
           tabletImg={dessert.image.tablet}

@@ -36,11 +36,13 @@ export default function App() {
         return item
       }).filter(item => item.quantity > 0))
     }
-
+    const clearCart = () => {
+      setCart([])
+    }
   return (
     <div className='wrapper'>
       <DessertList addToCart={addToCart} decreaseQuantity={decreaseQuantity} cart={cart}/>
-      <Cart cart={cart} removeFromCart={removeFromCart}/>
+      <Cart cart={cart} removeFromCart={removeFromCart} clearCart={clearCart}/>
 
     </div>
   )

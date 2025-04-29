@@ -1,17 +1,29 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Cart.css'
 import emptyCartImg from '/images/illustration-empty-cart.svg'
 import removeButton from '/images/icon-remove-item.svg'
 import iconCarbon from '/images/icon-carbon-neutral.svg'
+import Modal from '../Modal/Modal'
 
-export default function Cart({cart, addToCart, removeFromCart}) {
+export default function Cart({cart, addToCart, removeFromCart, thumbnail, clearCart}) {
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity,0)
+  const totalQuantity = cart.reduce((sum,item) => sum + item.quantity,0)
   
+  const handleConfirmOrder = () => {
+    window.scrollTo({ top: 0, behavior: 'instant' })
+    setIsModalOpen(true)
+    document.body.classList.add('no-scroll')
+  }
+  const handleCloseModal = () => {
+    setIsModalOpen(false)
+    document.body.classList.remove('no-scroll')
+  }
   
   return (
     <>
       <div className='cart-container'>
-        <h2 className='text-preset-2'>Your cart ({cart.length})</h2>
+        <h2 className='text-preset-2'>Your cart ({totalQuantity})</h2>
 
         {cart.length === 0 ? (
             <div className='empty-cart-content'>
@@ -51,13 +63,14 @@ export default function Cart({cart, addToCart, removeFromCart}) {
                 </p>
               </div>
 
-              <button className='confirm-order-btn text-preset-3'>
+              <button onClick={handleConfirmOrder} className='confirm-order-btn text-preset-3'>
                 Confirm Order
               </button>
             </div>
             
         )}
       </div>
+      {isModalOpen && <Modal cart={cart} handleCloseModal={handleCloseModal} thumbnail={thumbnail} total={total} clearCart={clearCart}/>}
     </>
   )
 }

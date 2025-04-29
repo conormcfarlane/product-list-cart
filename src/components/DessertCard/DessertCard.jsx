@@ -8,7 +8,7 @@ export default function DessertCard({
   name,
   category,
   price,
-  thumbimage,
+  thumbnail,
   desktopImg,
   mobileImg,
   tabletImg,
@@ -32,11 +32,11 @@ export default function DessertCard({
           <div className='quantity-control'>
             <span className='quantity-button' onClick={() => decreaseQuantity(id)}><img src={iconDecrement} /></span>
             <p className='quantity-display'>{itemInCart.quantity}</p>
-            <span className='quantity-button' onClick={() => addToCart({id, name, price, quantity: 1})}><img src={iconIncrement} /></span>
+            <span className='quantity-button' onClick={() => addToCart({id, name, price, quantity: 1,thumbnail})}><img src={iconIncrement} /></span>
           </div>
         ) : (
           <div className='add-to-cart-content'>
-            <span onClick={() => addToCart({id, name, price, quantity: 1})}>
+            <span onClick={() => addToCart({id, name, price, quantity: 1, thumbnail})}>
               <img src={cartImage} alt="" />
               <p>Add to Cart</p>
             </span>
